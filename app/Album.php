@@ -19,4 +19,9 @@ class Album extends Model
     {
         return $this->belongsTo('App\Genre');
     }
+
+    public static function latest($limit)
+    {
+        return self::orderBy('created_at', 'asc')->limit($limit)->get();
+    }
 }
